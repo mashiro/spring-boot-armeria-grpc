@@ -3,6 +3,7 @@ syntax = "proto3";
 package grpc.hello;
 
 option java_package = "com.example.grpc.hello";
+option java_multiple_files = true;
 
 service HelloService {
   rpc Hello (HelloRequest) returns (HelloReply) {}
@@ -10,6 +11,7 @@ service HelloService {
 
 message HelloRequest {
   string name = 1;
+  optional int32 optional_name = 2;
 }
 
 message HelloReply {

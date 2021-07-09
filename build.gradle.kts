@@ -1,16 +1,16 @@
 import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val grpcVersion = "1.34.0"
-val grpcKotlinVersion = "1.0.0"
-val protobufVersion = "3.14.0"
+val grpcVersion = "1.39.0"
+val grpcKotlinVersion = "1.1.0"
+val protobufVersion = "3.17.3"
 
 plugins {
     id("org.springframework.boot") version "2.4.2"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.4.21"
     kotlin("plugin.spring") version "1.4.21"
-    id("com.google.protobuf") version "0.8.14"
+    id("com.google.protobuf") version "0.8.16"
     idea
 }
 
@@ -22,16 +22,11 @@ repositories {
     mavenCentral()
 }
 
-dependencyManagement {
-    imports {
-        mavenBom("com.linecorp.armeria:armeria-bom:1.3.0")
-    }
-}
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // armeria
+    implementation(platform("com.linecorp.armeria:armeria-bom:1.9.2"))
     implementation("com.linecorp.armeria:armeria-spring-boot2-starter")
     implementation("com.linecorp.armeria:armeria-spring-boot2-autoconfigure")
     implementation("com.linecorp.armeria:armeria-tomcat9")

@@ -46,6 +46,7 @@ class ArmeriaConfig {
                     .addServices(grpcServices)
                     .supportedSerializationFormats(GrpcSerializationFormats.values())
                     .enableUnframedRequests(true)
+                    .useBlockingTaskExecutor(true)
                     .build()
             )
         }

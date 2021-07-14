@@ -11,7 +11,6 @@ service HelloService {
 
 message HelloRequest {
   string name = 1;
-  optional int32 optional_name = 2;
 }
 
 message HelloReply {

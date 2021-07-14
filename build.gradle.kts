@@ -4,12 +4,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val grpcVersion = "1.39.0"
 val grpcKotlinVersion = "1.1.0"
 val protobufVersion = "3.17.3"
+val armeriaVersion = "1.9.2"
 
 plugins {
-    id("org.springframework.boot") version "2.4.2"
+    id("org.springframework.boot") version "2.5.2"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.4.21"
-    kotlin("plugin.spring") version "1.4.21"
+    kotlin("jvm") version "1.5.21"
+    kotlin("plugin.spring") version "1.5.21"
     id("com.google.protobuf") version "0.8.16"
     idea
 }
@@ -26,9 +27,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // armeria
-    implementation(platform("com.linecorp.armeria:armeria-bom:1.9.2"))
+    implementation(platform("com.linecorp.armeria:armeria-bom:$armeriaVersion"))
     implementation("com.linecorp.armeria:armeria-spring-boot2-starter")
-    implementation("com.linecorp.armeria:armeria-spring-boot2-autoconfigure")
+    implementation("com.linecorp.armeria:armeria-spring-boot2-actuator-starter")
     implementation("com.linecorp.armeria:armeria-tomcat9")
     implementation("com.linecorp.armeria:armeria-grpc")
 

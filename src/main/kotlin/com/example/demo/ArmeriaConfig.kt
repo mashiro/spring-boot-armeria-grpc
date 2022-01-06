@@ -6,6 +6,7 @@ import com.linecorp.armeria.server.healthcheck.HealthChecker
 import com.linecorp.armeria.server.tomcat.TomcatService
 import com.linecorp.armeria.spring.ArmeriaServerConfigurator
 import io.grpc.BindableService
+import io.grpc.protobuf.services.ProtoReflectionService
 import org.apache.catalina.connector.Connector
 import org.springframework.boot.web.embedded.tomcat.TomcatWebServer
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext
@@ -43,6 +44,7 @@ class ArmeriaConfig {
             builder.service(
                 GrpcService
                     .builder()
+                    .addService(ProtoReflectionService.newInstance())
                     .addServices(grpcServices)
                     .supportedSerializationFormats(GrpcSerializationFormats.values())
                     .enableUnframedRequests(true)

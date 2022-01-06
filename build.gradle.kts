@@ -1,17 +1,17 @@
 import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val grpcVersion = "1.39.0"
-val grpcKotlinVersion = "1.1.0"
-val protobufVersion = "3.17.3"
-val armeriaVersion = "1.9.2"
+val protobufVersion = "3.19.1"
+val grpcVersion = "1.43.0"
+val grpcKotlinVersion = "1.2.0"
+val armeriaVersion = "1.13.4"
 
 plugins {
-    id("org.springframework.boot") version "2.5.2"
+    id("org.springframework.boot") version "2.6.2"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.5.21"
-    kotlin("plugin.spring") version "1.5.21"
-    id("com.google.protobuf") version "0.8.16"
+    kotlin("jvm") version "1.6.10"
+    kotlin("plugin.spring") version "1.6.10"
+    id("com.google.protobuf") version "0.8.18"
     idea
 }
 
@@ -33,7 +33,8 @@ dependencies {
     implementation("com.linecorp.armeria:armeria-tomcat9")
     implementation("com.linecorp.armeria:armeria-grpc")
 
-    // grpc kotlin
+    // grpc
+    implementation("com.google.protobuf:protobuf-java:$protobufVersion")
     implementation("io.grpc:grpc-kotlin-stub:$grpcKotlinVersion")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
